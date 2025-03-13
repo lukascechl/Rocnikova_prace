@@ -22,11 +22,20 @@ public class AIChase : MonoBehaviour
 
     }
     void OnCollisionEnter(Collision collision)
-{
-    if (collision.gameObject.CompareTag("Player"))
     {
-        Debug.Log("Enemy narazil do hráče!");
-        // Tady můžeš přidat logiku poškození nebo reakce na kolizi
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Enemy narazil do hráče!");
+            // Tady můžeš přidat logiku poškození nebo reakce na kolizi
+        }
     }
-}
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Enemy narazil do hráče!");
+            // Tady můžeš přidat logiku poškození nebo reakce na kolizi
+        }
+    }
+
 }

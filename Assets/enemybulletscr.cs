@@ -23,8 +23,9 @@ private float timer;
             Destroy(gameObject);
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
+        var other = collision.collider;
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<Health>().TakeDamage(20);

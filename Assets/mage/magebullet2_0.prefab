@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1050406343018224930}
   - component: {fileID: -219099839003868765}
   - component: {fileID: 9132290338596004570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: magebullet2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
