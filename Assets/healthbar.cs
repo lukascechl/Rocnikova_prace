@@ -21,8 +21,8 @@ public void Start()
 
 public void Update()
 {
-    redBar.fillAmount = player.currentHealth/100;
-    HpText.text = player.currentHealth.ToString()+"/"+ player.startHealth.ToString();
+    redBar.fillAmount = player.currentHealth/player.maxHealth;
+    HpText.text = player.currentHealth.ToString()+"/"+ player.maxHealth.ToString();
 if (player.currentHealth <= 0)
 {
     Gameover();
