@@ -3,38 +3,51 @@ using UnityEngine;
 public class AIChase : MonoBehaviour
 {
     public GameObject player;
+    Animator animator;
     public float speed;
-    private float distance;
+    public bool _hasTarget = false;
+    public bool hasTarget { get { return _hasTarget;} private set 
+    {
+        _hasTarget = value;
+        animator.SetBool("hastarget",value);
+    }
+    }
     public float distanceBetween;
+    public detection detection;
+    [SerializeField] private Animator _animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     // UnityEngine.Vector2 direction = player.transform.position - transform.position;
     // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        distance = UnityEngine.Vector2.Distance(transform.position, player.transform.position);
-                
-
-        
-    if(distance < distanceBetween)
-    {
-        transform.position = UnityEngine.Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        animator = GetComponent<Animator>();    
     }
-
-    }
-    void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Vector2 direction = player.transform.position - transform.position;
+        float sqrDistance = direction.sqrMagnitude;
+        hasTarget = detection.detected.Count > 0;
+
+        if (sqrDistance < distanceBetween * distanceBetween)
         {
-            Debug.Log("Enemy narazil do hráče!");
-            // Tady můžeš přidat logiku poškození nebo reakce na kolizi
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+
+            _animator.SetBool("run", true);
+
+        }
+        else
+        {
+            _animator.SetBool("run", false);
         }
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
+
+    
+
+    void damage(){
+        if (hasTarget = detection.detected.Count > 0)
         {
-            Debug.Log("Enemy narazil do hráče!");
-            // Tady můžeš přidat logiku poškození nebo reakce na kolizi
+            player.GetComponent<Health>().TakeDamage(1);
         }
     }
 
