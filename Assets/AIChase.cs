@@ -5,6 +5,7 @@ public class AIChase : MonoBehaviour
     public GameObject player;
     Animator animator;
     public float speed;
+    public float hitdamage;
     public bool _hasTarget = false;
     public bool hasTarget { get { return _hasTarget;} private set 
     {
@@ -47,7 +48,7 @@ public class AIChase : MonoBehaviour
     void damage(){
         if (hasTarget = detection.detected.Count > 0)
         {
-            player.GetComponent<Health>().TakeDamage(1);
+            player.GetComponent<Health>().TakeDamage(hitdamage);
         }
     }
 
