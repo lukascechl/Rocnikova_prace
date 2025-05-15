@@ -199,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 1
+  hitdamage: 0
   _hasTarget: 0
   distanceBetween: 4
   detection: {fileID: 1212514147615145018}
@@ -311,7 +312,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smallitem: {fileID: 11400000, guid: f16f1b6e67235ce44997f1a47c322688, type: 2}
+  smallitemchance2: 0
   bigitem: {fileID: 11400000, guid: cd02fd1e609ff984497e78c862e3c881, type: 2}
+  bigitemchance4: 0
   hpitem: {fileID: 11400000, guid: d5a0f0e0f75d65642a3327eb2a3294cc, type: 2}
+  hpitemchance3: 0
   dmgitem: {fileID: 11400000, guid: 077dd08373fb95245ad8d27f5b46c1b2, type: 2}
+  dmgitemchance1: 0
   maxHealth: 90

@@ -24,12 +24,4 @@ public void hpupgrade(float _hpupgrade)
     maxHealth += _hpupgrade;
     Debug.Log("Nový max health: " + startHealth);
 }
-
-private void Update()
-{
-    if (Input.GetKeyDown(KeyCode.E))
-    {
-        TakeDamage(10);
-    }
-}
 }
