@@ -16,27 +16,16 @@ using UnityEngine;
         {
             Move();
         }
-        
         void Start()
         {
             rb = this.GetComponent<Rigidbody2D>();
         }
-    
     void ProcessInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-
         moveDir = new Vector2(moveX, moveY).normalized;
-        if (moveDir != Vector2.zero)
-        {
-            _animator.SetBool("IsRunning", true);
-        }
-        else
-        {
-            _animator.SetBool("IsRunning", false);
-        }
-
+        _animator.SetBool("IsRunning", moveDir != Vector2.zero);
     }
     void Move()
     {
