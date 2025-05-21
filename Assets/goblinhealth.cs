@@ -11,6 +11,11 @@ public class goblinhealth : MonoBehaviour
     public Item dmgitem;
     public float dmgitemchance1;
     
+
+
+
+     // Current health of the goblin
+
     [SerializeField] public float maxHealth = 100; // Maximum health of the goblin
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +31,8 @@ public class goblinhealth : MonoBehaviour
         {
             Destroy(gameObject);
             int nahodneCislo = Random.Range(1, 101);
+            FindFirstObjectByType<points>().addpoint();
+
             Debug.Log("Náhodné číslo: " + nahodneCislo);
 
             if (nahodneCislo <= dmgitemchance1) 
